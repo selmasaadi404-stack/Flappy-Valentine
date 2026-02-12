@@ -286,6 +286,7 @@ function drawPipes() {
 
     
   });
+}
 function playDeathSound() {
   if (deathSound) {
     // 1. STOP the flap sound immediately
@@ -368,4 +369,5 @@ function showStickerModal(src) {
   m.innerHTML = `<img src="${src}" class="bigSticker">`;
   m.onclick = () => m.remove();
   document.body.appendChild(m);
+
 }

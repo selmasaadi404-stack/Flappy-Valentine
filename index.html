@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Flappy Pedri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="birdSelectScreen">
+  <div class="selection-container">
+    <h1>Pick a struggle!</h1>
+    
+    <div class="selection-group">
+      <h3>Pick your Bird</h3>
+      <div class="icon-row">
+        <img src="bird1.png" class="select-icon bird-opt" data-type="bird1.png">
+        <img src="bird2.png" class="select-icon bird-opt" data-type="bird2.png">
+      </div>
+    </div>
+
+    <div class="selection-group">
+      <h3>Pick your Mode</h3>
+      <div class="icon-row">
+        <img src="weapons.png" class="select-icon set-opt" data-set="classic">
+        <img src="vecna.png" class="select-icon set-opt" data-set="strangerthings">
+      </div>
+    </div>
+
+    <button id="confirmSelectBtn" disabled>Ready to Play?</button>
+  </div>
+</div>
+  <!-- Start Screen -->
+  <div id="startScreen" style="display:none;">
+    <h1>Happy Valentine's,<br> I love you.<br> Enjoy the game!</h1>
+    <img src="heart.png" id="startBtn" alt="Start Game">
+  </div>
+
+  <!-- Game Canvas -->
+  <canvas id="gameCanvas"></canvas>
+  <div id="scoreDisplayTop">Score: 0</div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" style="display:none;">
+  <h1>Awww try again baby,<br>better luck next time 💔</h1>
+  <p id="scoreDisplay"></p>
+  <p id="bestScoreDisplay"></p>
+  <img src="heart.png" id="restartBtn" alt="Restart Game">
+
+  <!-- Inventory button directly under heart -->
+  <div class="buttonRow">
+    <button id="inventoryBtn"> View Inventory</button>
+  </div>
+</div>
+
+
+<div id="inventoryScreen" style="display:none;">
+  <h2 class="inventoryTitle">Your Sticker Collection</h2>
+  <div id="inventoryGallery"></div>
+  <div id="paginationControls"></div>
+  <button id="backBtn">Back</button>
+</div>
+
+  <!-- Load JavaScript modules -->
+  <script src="assets.js"></script>
+  <script src="ui.js"></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 function showScreen(id) {
   const screens = ["birdSelectScreen", "startScreen", "gameOverScreen", "gameCanvas", "inventoryScreen"];
   
@@ -6,7 +5,6 @@ function showScreen(id) {
     const el = document.getElementById(screenId);
     if (!el) return;
 
-    // Hide everything first
     el.style.display = "none";
     el.classList.remove("fall-animation", "romantic-animation");
   });
@@ -15,19 +13,16 @@ function showScreen(id) {
   if (target) {
     target.style.display = (id === "gameCanvas") ? "block" : "flex";
 
-    // Add funny/romantic transitions based on the screen
     if (id === "gameOverScreen") {
-      target.classList.add("fall-animation"); // It "falls" because you lost!
+      target.classList.add("fall-animation");
     } else if (id === "startScreen" || id === "birdSelectScreen") {
-      target.classList.add("romantic-animation"); // Soft entry for the lovey parts
+      target.classList.add("romantic-animation");
     }
   }
 }
-
 
 function pulseButton(btnId) {
   const btn = document.getElementById(btnId);
   btn.classList.add("pulse-once");
   setTimeout(() => btn.classList.remove("pulse-once"), 400);
 }
-

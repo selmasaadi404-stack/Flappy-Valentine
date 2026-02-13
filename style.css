@@ -72,26 +72,56 @@ h1 {
   color: #FFD1DC;
 }
 
-.select-icon {
-  width: 90px; /* Augmenté */
-  height: 90px;
-  object-fit: contain;
-  border: 3px solid transparent;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
+
+/* Make them even bigger on very small phones */
+@media (max-width: 400px) {
+  .select-icon {
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+  }
 }
-/* Alignement des icônes de sélection */
+
+
+
+/* --- USE THIS VERSION AT THE TOP AND DELETE THE ONES AT THE BOTTOM --- */
 .icon-row {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin: 15px 0;
+  flex-wrap: wrap; /* Allows icons to stack if the phone is tiny */
+  gap: 15px;       /* Spacing between icons */
+  margin: 10px 0;
+  width: 100%;
+}
+
+.select-icon {
+  width: 110px !important;  /* Force the big size */
+  height: 110px !important; 
+  object-fit: contain;
+  border: 4px solid transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgba(255, 209, 220, 0.1);
+  transition: transform 0.2s, border-color 0.2s, filter 0.2s;
+  filter: grayscale(0.8); /* Look "unselected" */
 }
 
 .select-icon.active {
-  border-color: #FFD1DC;
+  filter: grayscale(0) !important; /* Look "selected" */
+  border-color: #FFD1DC !important;
   transform: scale(1.1);
+  background: rgba(255, 209, 220, 0.3);
+}
+
+/* Specific fix for very narrow phones */
+@media (max-width: 380px) {
+  .select-icon {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .icon-row {
+    gap: 8px;
+  }
 }
 
 #confirmSelectBtn, #inventoryBtn  {
@@ -324,4 +354,27 @@ h1 {
 .select-icon:active {
   transform: scale(0.9);
   border-color: #FFD1DC;
+}
+
+/* Animation: Falling from the top */
+@keyframes fallDown {
+  0% { transform: translateY(-100%) rotate(-10deg); opacity: 0; }
+  70% { transform: translateY(10%) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+/* Animation: Romantic Fade/Pulse */
+@keyframes romanticIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Apply "fallDown" to the Game Over screen specifically */
+.fall-animation {
+  animation: fallDown 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Apply "romanticIn" to the Start/Select screens */
+.romantic-animation {
+  animation: romanticIn 0.5s ease-out forwards;
 }
